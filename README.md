@@ -66,3 +66,18 @@ Page 1/255
 
 Instruction: (LDV) 0000100011000001
 ```
+```asm
+; Sample hello world script in ASPL:
+:lable hello_world
+  .data
+  .l1 string "Hello, World!"
+  .text
+.global main:
+
+main:
+  ldv a, 0
+  ldv c, 4
+  ldv b, .l1, :hello_world
+  sys
+  hlt
+
